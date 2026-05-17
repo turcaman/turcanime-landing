@@ -10,56 +10,54 @@ export const releases: Release[] = [
     version: "v1.8.3",
     title: "Mantenimiento y Control",
     changes: [
-      "<strong>Limpieza total de caché:</strong> Nueva función en Ajustes que refresca la conexión sin perder tu historial.",
+      "<strong>Gestión de datos:</strong> Nueva opción en Ajustes para refrescar la conexión de forma segura sin perder tu historial.",
       "<strong>Interfaz mejorada:</strong> Diseño más limpio y coherente en los ajustes de la aplicación.",
-      "<strong>Mayor estabilidad:</strong> Refactorización profunda de los servicios de red y del reproductor."
+      "<strong>Estabilidad:</strong> Refactorización profunda para mejorar la robustez de la red y el reproductor."
     ]
   },
   {
     version: "v1.8.2",
-    title: "Pulido Visual",
+    title: "Mantenimiento interno",
     changes: [
-      "<strong>Mejoras visuales:</strong> Ajustes de diseño para una interfaz más pulida.",
-      "<strong>Estabilidad:</strong> Correcciones en la gestión de componentes y recursos."
+      "<strong>Optimización de infraestructura:</strong> Actualizaciones técnicas para asegurar la compatibilidad y estabilidad del sistema."
     ]
   },
   {
     version: "v1.8.1",
-    title: "Estabilidad y Navegación",
+    title: "Calidad y Coherencia",
     changes: [
-      "<strong>Navegación corregida:</strong> La barra inferior ahora reacciona correctamente al hacer scroll.",
-      "<strong>Seguir viendo:</strong> Restaurada la funcionalidad del historial de visualización.",
-      "<strong>Optimización:</strong> Refactorización del sistema de caché para mayor robustez."
+      "<strong>Refactorización de código:</strong> Limpieza y estandarización para una app más sólida.",
+      "<strong>Consistencia visual:</strong> Ajustes en el sistema de diseño para una experiencia más uniforme."
     ]
   },
   {
     version: "v1.8.0",
     title: "Rediseño y Rendimiento",
     changes: [
-      "<strong>Nueva Home:</strong> Rediseño completo hacia un catálogo más visual.",
-      "<strong>Reproductor renovado:</strong> Carga de video optimizada y más estable.",
+      "<strong>Nueva Home:</strong> Rediseño visual hacia una cuadrícula de catálogo.",
+      "<strong>Reproductor renovado:</strong> Integración de extracción HLS para una carga más rápida.",
       "<strong>Búsqueda instantánea:</strong> Resultados al momento con sugerencias mejoradas.",
-      "<strong>Historial:</strong> Guardado de progreso inmediato al elegir servidor."
+      "<strong>Historial inteligente:</strong> Progreso guardado inmediatamente al elegir servidor."
     ]
   },
   {
     version: "v1.7.6",
     title: "Pulido de Experiencia",
     changes: [
-      "<strong>Navegación más cómoda:</strong> La barra inferior ahora responde al scroll para darte más espacio al ver contenido.",
-      "<strong>Historial restaurado:</strong> Solucionado el acceso a 'Seguir viendo' para que retomes tus series sin problemas.",
-      "<strong>Optimización interna:</strong> Ajustes de código para una app más ligera y ágil."
+      "<strong>Navegación fluida:</strong> La barra inferior ahora reacciona correctamente al hacer scroll.",
+      "<strong>Seguir viendo:</strong> Solución a problemas con el historial de visualización.",
+      "<strong>Optimización interna:</strong> Ajustes para una app más ágil."
     ]
   },
   {
     version: "v1.7.5",
     title: "Configuración y Estabilidad",
     changes: [
-      "<strong>Nuevo menú de Ajustes:</strong> Ahora tienes el control para gestionar el espacio de la app directamente desde el menú.",
-      "<strong>Reproducción más estable:</strong> Mejoras en el reproductor para reducir errores al cargar videos.",
-      "<strong>Consistencia visual:</strong> Ajustes en el diseño para que todo se vea más uniforme y pulido."
+      "<strong>Nuevo menú de Ajustes:</strong> Introducción experimental de herramientas para gestionar la caché.",
+      "<strong>Reproducción estable:</strong> Mejoras en la reproducción y manejo de errores.",
+      "<strong>Consistencia visual:</strong> Refactorización del sistema de espaciado."
     ],
-    note: "Si vienes de una versión anterior a la 1.7.5, te recomendamos desinstalar la aplicación antes de actualizar. Esto asegura que todos los ajustes y datos se configuren perfectamente desde el primer momento."
+    note: "Esta fue una versión experimental. Si vienes de una versión anterior a la 1.7.5, te recomendamos desinstalar la aplicación antes de actualizar para asegurar una configuración perfecta."
   },
   {
     version: "v1.7.4",
