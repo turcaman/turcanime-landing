@@ -7,6 +7,14 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.8.7",
+    title: "Optimización de Inicio",
+    changes: [
+      "<strong>Inicio instantáneo:</strong> Se eliminó el parpadeo del cargador al iniciar la aplicación.",
+      "<strong>Mejora de caché:</strong> Pre-carga optimizada para una experiencia más fluida desde el primer segundo."
+    ]
+  },
+  {
     version: "v1.8.6",
     title: "Mejoras de Estabilidad y Conectividad",
     changes: [
