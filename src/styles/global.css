@@ -16,12 +16,14 @@
 
   --radius-m: 8px;
   --radius-l: 12px;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
   body {
     @apply bg-bg text-text-primary antialiased;
-    font-family: sans-serif;
+    font-family: var(--font-sans);
   }
 }
 
