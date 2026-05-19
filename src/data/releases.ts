@@ -7,6 +7,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.8.6",
+    title: "Mejoras de Estabilidad y Conectividad",
+    changes: [
+      "<strong>Conectividad inteligente:</strong> Auto refresco de sesión al detectar cambios en la red.",
+      "<strong>Experiencia de usuario:</strong> Mejoras en la recuperación de errores de autenticación y eliminación de parpadeos visuales.",
+      "<strong>Interfaz pulida:</strong> Alineación corregida en la sección de búsquedas recientes.",
+      "<strong>Optimización interna:</strong> Refactorización para evitar colisiones en la caché de streams."
+    ]
+  },
+  {
     version: "v1.8.5",
     title: "Estabilidad de Caché",
     changes: [
