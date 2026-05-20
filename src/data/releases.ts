@@ -10,103 +10,93 @@ export const releases: Release[] = [
     version: "v1.8.8",
     title: "Mejoras de Estabilidad",
     changes: [
-      "<strong>Corrección de carga:</strong> Se solucionó el error que causaba que el cargador desapareciera antes de tiempo al refrescar la información.",
-      "<strong>Experiencia mejorada:</strong> Ajustes internos para asegurar una navegación más fluida y sólida."
+      "<strong>Carga estable:</strong> Corregimos un error donde el indicador de carga desaparecía antes de que los datos estuvieran listos.",
+      "<strong>Optimización:</strong> Ajustes internos para una experiencia más sólida."
     ]
   },
   {
     version: "v1.8.7",
     title: "Optimización de Inicio",
     changes: [
-      "<strong>Inicio instantáneo:</strong> Se eliminó el parpadeo del cargador al iniciar la aplicación.",
-      "<strong>Mejora de caché:</strong> Pre-carga optimizada para una experiencia más fluida desde el primer segundo."
+      "<strong>Carga instantánea:</strong> Eliminamos parpadeos visuales al abrir la aplicación.",
+      "<strong>Precarga inteligente:</strong> Mejoramos la gestión de datos para que todo esté listo desde el primer segundo."
     ]
   },
   {
     version: "v1.8.6",
-    title: "Mejoras de Estabilidad y Conectividad",
+    title: "Conectividad y Estabilidad",
     changes: [
-      "<strong>Conectividad inteligente:</strong> Auto refresco de sesión al detectar cambios en la red.",
-      "<strong>Experiencia de usuario:</strong> Mejoras en la recuperación de errores de autenticación y eliminación de parpadeos visuales.",
-      "<strong>Interfaz pulida:</strong> Alineación corregida en la sección de búsquedas recientes.",
-      "<strong>Optimización interna:</strong> Refactorización para evitar colisiones en la caché de streams."
+      "<strong>Auto-recuperación:</strong> La app ahora detecta cambios de red y gestiona la sesión automáticamente.",
+      "<strong>Correcciones visuales:</strong> Mejoramos la alineación en búsquedas recientes y la respuesta ante errores."
     ]
   },
   {
     version: "v1.8.5",
-    title: "Estabilidad de Caché",
+    title: "Fiabilidad de Caché",
     changes: [
-      "<strong>Mejora en fiabilidad:</strong> Hemos optimizado el sistema de gestión de caché para asegurar que todos los episodios carguen siempre correctamente.",
-      "<strong>Estabilidad mejorada:</strong> Ajustes internos para garantizar una experiencia más sólida."
+      "<strong>Carga corregida:</strong> Ajustamos el sistema de caché para asegurar que todos los episodios carguen correctamente."
     ]
   },
   {
     version: "v1.8.4",
-    title: "Estabilidad en reproducción",
+    title: "Mejoras en Reproducción",
     changes: [
-      "<strong>Mejoras en el reproductor:</strong> Solucionamos un error que causaba que algunos episodios cargaran el video de otro capítulo.",
-      "<strong>Caché más inteligente:</strong> Optimizamos la forma en que guardamos los videos para asegurar que siempre veas exactamente el episodio que seleccionaste."
+      "<strong>Reproductor preciso:</strong> Solucionamos un error que cargaba el episodio incorrecto.",
+      "<strong>Caché optimizada:</strong> Ajustes para garantizar la selección exacta del video."
     ]
   },
   {
     version: "v1.8.3",
-    title: "Mantenimiento y Control",
+    title: "Control y Gestión",
     changes: [
-      "<strong>Gestión de datos:</strong> Nueva opción en Ajustes para refrescar la conexión de forma segura sin perder tu historial.",
-      "<strong>Interfaz mejorada:</strong> Diseño más limpio y coherente en los ajustes de la aplicación.",
-      "<strong>Estabilidad:</strong> Refactorización profunda para mejorar la robustez de la red y el reproductor."
+      "<strong>Refresco seguro:</strong> Nueva opción en Ajustes para refrescar la conexión sin perder el historial.",
+      "<strong>Interfaz:</strong> Ajustamos el diseño de los ajustes para que sea más limpio y consistente."
     ]
   },
   {
     version: "v1.8.2",
-    title: "Mantenimiento interno",
+    title: "Mantenimiento",
     changes: [
-      "<strong>Optimización de infraestructura:</strong> Actualizaciones técnicas para asegurar la compatibilidad y estabilidad del sistema."
+      "<strong>Compatibilidad:</strong> Mejoras técnicas para asegurar el funcionamiento estable del sistema."
     ]
   },
   {
     version: "v1.8.1",
-    title: "Calidad y Coherencia",
+    title: "Calidad Visual",
     changes: [
-      "<strong>Refactorización de código:</strong> Limpieza y estandarización para una app más sólida.",
-      "<strong>Consistencia visual:</strong> Ajustes en el sistema de diseño para una experiencia más uniforme."
+      "<strong>Diseño consistente:</strong> Ajustamos el sistema visual para una experiencia más uniforme."
     ]
   },
   {
     version: "v1.8.0",
     title: "Rediseño y Rendimiento",
     changes: [
-      "<strong>Nueva Home:</strong> Rediseño visual hacia una cuadrícula de catálogo.",
-      "<strong>Reproductor renovado:</strong> Integración de extracción HLS para una carga más rápida.",
-      "<strong>Búsqueda instantánea:</strong> Resultados al momento con sugerencias mejoradas.",
-      "<strong>Historial inteligente:</strong> Progreso guardado inmediatamente al elegir servidor."
+      "<strong>Nueva Home:</strong> Rediseñamos la pantalla principal a una cuadrícula de catálogo.",
+      "<strong>Reproductor renovado:</strong> Nueva integración HLS para una carga de video más rápida.",
+      "<strong>Búsqueda mejorada:</strong> Resultados instantáneos con mejores sugerencias."
     ]
   },
   {
     version: "v1.7.6",
-    title: "Pulido de Experiencia",
+    title: "Experiencia de Navegación",
     changes: [
-      "<strong>Navegación fluida:</strong> La barra inferior ahora reacciona correctamente al hacer scroll.",
-      "<strong>Seguir viendo:</strong> Solución a problemas con el historial de visualización.",
-      "<strong>Optimización interna:</strong> Ajustes para una app más ágil."
+      "<strong>Barra de navegación:</strong> Corregimos el comportamiento de la barra inferior al hacer scroll."
     ]
   },
   {
     version: "v1.7.5",
-    title: "Configuración y Estabilidad",
+    title: "Configuración inicial",
     changes: [
-      "<strong>Nuevo menú de Ajustes:</strong> Introducción experimental de herramientas para gestionar la caché.",
-      "<strong>Reproducción estable:</strong> Mejoras en la reproducción y manejo de errores.",
-      "<strong>Consistencia visual:</strong> Refactorización del sistema de espaciado."
-    ],
-    note: "Esta fue una versión experimental. Si vienes de una versión anterior a la 1.7.5, te recomendamos desinstalar la aplicación antes de actualizar para asegurar una configuración perfecta."
+      "<strong>Ajustes:</strong> Introducción del menú de configuración.",
+      "<strong>Correcciones:</strong> Estabilizamos la reproducción y mejoramos el historial de visualización."
+    ]
   },
   {
     version: "v1.7.4",
     title: "Lanzamiento Inicial",
     changes: [
-      "<strong>Lanzamiento inicial:</strong> Primera versión estable de Turcanime.",
-      "<strong>Funcionalidades clave:</strong> Estreno de la navegación por pestañas, buscador avanzado y reproductor integrado."
+      "<strong>Lanzamiento:</strong> Primera versión estable de Turcanime.",
+      "<strong>Funcionalidades:</strong> Navegación, buscador y reproductor integrado."
     ]
   }
 ];
