@@ -7,6 +7,14 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.8.8",
+    title: "Mejoras de Estabilidad",
+    changes: [
+      "<strong>Corrección de carga:</strong> Se solucionó el error que causaba que el cargador desapareciera antes de tiempo al refrescar la información.",
+      "<strong>Experiencia mejorada:</strong> Ajustes internos para asegurar una navegación más fluida y sólida."
+    ]
+  },
+  {
     version: "v1.8.7",
     title: "Optimización de Inicio",
     changes: [
