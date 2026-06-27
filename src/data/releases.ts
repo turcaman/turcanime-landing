@@ -7,6 +7,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.9.1",
+    title: "Reproductor renovado",
+    changes: [
+      "<strong>Controles mejorados:</strong> Rediseñamos los controles de reproducción con overlay oscuro y auto-ocultación para una experiencia más inmersiva.",
+      "<strong>Transiciones fluidas:</strong> Carga instantánea entre episodios anterior y siguiente sin pantallazos.",
+      "<strong>Preferencias recordadas:</strong> La app guarda tu último idioma seleccionado, sin tener que elegirlo cada vez.",
+    ],
+  },
+  {
     version: "v1.9.0",
     title: "Reproducción más rápida y estable",
     changes: [
