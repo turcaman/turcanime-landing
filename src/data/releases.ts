@@ -7,6 +7,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.9.2",
+    title: "Reanuda donde lo dejaste",
+    changes: [
+      "<strong>Progreso guardado:</strong> La app recuerda en qué segundo ibas. Al volver a un episodio, continúa exactamente donde lo dejaste.",
+      "<strong>Barra de progreso:</strong> Las tarjetas de \"Continuar viendo\" ahora muestran una barra con tu avance.",
+      "<strong>Búsqueda precisa:</strong> Al arrastrar la barra de reproducción se muestra el tiempo exacto al que saltarás.",
+      "<strong>Formato de duración:</strong> Los episodios largos ahora muestran horas correctamente (ej. 1:13:00).",
+    ],
+  },
+  {
     version: "v1.9.1",
     title: "Reproductor renovado",
     changes: [
