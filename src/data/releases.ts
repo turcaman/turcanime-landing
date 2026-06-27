@@ -7,6 +7,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.9.4",
+    title: "Fiabilidad de reproducción",
+    changes: [
+      "<strong>Idioma respetado:</strong> Corregimos un error que ignoraba tu selección de idioma y siempre mostraba subtitulado.",
+      "<strong>Más estabilidad:</strong> Solucionamos errores 403 que impedían reproducir algunos episodios.",
+      "<strong>Sin parpadeos:</strong> El indicador de la barra de reproducción ya no titila al iniciar un video.",
+    ],
+  },
+  {
     version: "v1.9.3",
     title: "Correcciones de reproducción",
     changes: [
