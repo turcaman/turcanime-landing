@@ -7,6 +7,14 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.9.6",
+    title: "Información detallada",
+    changes: [
+      "<strong>Géneros visibles:</strong> Ahora puedes ver los géneros de cada anime directamente en la pantalla de detalles.",
+      "<strong>Etiqueta de estado mejorada:</strong> El indicador de \"En emisión\" o \"Finalizado\" ahora es más visible.",
+    ],
+  },
+  {
     version: "v1.9.5",
     title: "Transiciones más suaves",
     changes: [
