@@ -7,6 +7,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "v1.9.5",
+    title: "Transiciones más suaves",
+    changes: [
+      "<strong>Animaciones mejoradas:</strong> Los controles del reproductor aparecen y desaparecen con una transición más fluida.",
+      "<strong>Carga integrada:</strong> El indicador de carga ahora se muestra directamente en el botón de reproducción, sin elementos adicionales.",
+      "<strong>Estabilidad al cambiar de fuente:</strong> Corregimos un error al cambiar entre servidores de video.",
+    ],
+  },
+  {
     version: "v1.9.4",
     title: "Fiabilidad de reproducción",
     changes: [
