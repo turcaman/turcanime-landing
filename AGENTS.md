@@ -4,7 +4,7 @@
 - **Astro 6** static site, output to `dist/`
 - **Tailwind CSS 4** via `@tailwindcss/vite` plugin (no PostCSS config, no `tailwind.config.*`)
 - **Lucide** icons (`@lucide/astro` — import from `lucide-astro` package)
-- **`@astrojs/sitemap`** — sitemap generated on build
+- **Static `sitemap.xml`** in `public/` — no sitemap plugin dependency
 - Node >= **22.12.0**
 
 ## Commands
@@ -23,7 +23,7 @@ src/
   layouts/      → Layout.astro (SEO/OG meta, lang="es")
   pages/        → index.astro (single page)
   styles/       → global.css (Tailwind import + @theme + custom keyframes)
-public/         → favicon.webp, og-image.webp, robots.txt
+public/         → favicon.webp, og-image.webp, robots.txt, sitemap.xml
 ```
 
 ## Conventions
