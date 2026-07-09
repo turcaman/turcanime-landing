@@ -1,4 +1,4 @@
-# Turcaniem Landing
+# Turcanime Landing
 
 Landing page for [Turcanime](https://github.com/turcaman/turcanime) — built with **Astro** + **Tailwind CSS**.
 
