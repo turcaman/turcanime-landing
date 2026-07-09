@@ -1,4 +1,4 @@
-# Turcaweb — Agent instructions
+# Turcanime Landing — Agent instructions
 
 ## Stack
 - **Astro 6** static site, output to `dist/`
