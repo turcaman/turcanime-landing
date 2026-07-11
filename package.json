@@ -9,9 +9,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "bump": "node scripts/bump.mjs"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
     "@lucide/astro": "^1.14.0",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.2.1",
