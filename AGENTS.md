@@ -1,4 +1,4 @@
-# Turcanime Landing — Agent instructions
+# AGENTS.md
 
 ## Stack
 - **Astro 6** static site, output to `dist/`
