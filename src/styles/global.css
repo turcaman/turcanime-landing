@@ -20,6 +20,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
   body {
     @apply bg-bg text-text-primary antialiased;
     font-family: var(--font-sans);
@@ -27,6 +31,12 @@
   ::selection {
     background: rgba(168, 85, 247, 0.3);
     color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

@@ -1,0 +1,90 @@
+---
+import { Download } from '@lucide/astro';
+import { release } from '../lib/release';
+
+const platforms = [
+  {
+    id: 'android',
+    name: 'Android',
+    version: `v${release.android.version}`,
+    meta: 'APK',
+    buttons: [{ label: 'Descargar', sub: 'APK', href: release.android.apkUrl }],
+    disabled: false,
+  },
+  {
+    id: 'windows',
+    name: 'Windows',
+    version: `v${release.desktop.version}`,
+    meta: '.exe',
+    buttons: [{ label: 'Descargar', sub: '.exe', href: release.desktop.windows.exeUrl }],
+    disabled: false,
+  },
+  {
+    id: 'linux',
+    name: 'Linux',
+    version: `v${release.desktop.version}`,
+    meta: '.deb / .rpm',
+    buttons: [
+      { label: '.deb', href: release.desktop.linux.debUrl },
+      { label: '.rpm', href: release.desktop.linux.rpmUrl },
+    ],
+    disabled: false,
+  },
+  {
+    id: 'macos',
+    name: 'macOS',
+    version: 'Pronto',
+    meta: '',
+    buttons: [],
+    disabled: true,
+  },
+];
+---
+
+<section id="descargas" class="px-5 py-24 border-t border-border">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">Descargas</h2>
+    <p class="text-text-secondary text-center text-sm mb-12 max-w-lg mx-auto">
+      Elegí tu plataforma y descargá el instalador. Sin cuentas, sin anuncios.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      {platforms.map(({ id, name, version, meta, buttons, disabled }) => (
+        <div class={`card-feature flex items-center justify-between gap-4 ${disabled ? 'opacity-60' : ''}`}>
+          <div class="min-w-0">
+            <h3 class="font-bold text-white text-lg leading-tight">{name}</h3>
+            <span class="text-xs text-text-secondary font-mono">{version}{meta && ` · ${meta}`}</span>
+          </div>
+
+          {disabled ? (
+            <span class="shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg border border-border text-sm font-bold text-text-secondary cursor-not-allowed">
+              Próximamente
+            </span>
+          ) : buttons.length === 1 ? (
+            <a
+              href={buttons[0].href}
+              download
+              class="btn-primary inline-flex items-center justify-center gap-2 shrink-0"
+            >
+              <Download size={16} />
+              {buttons[0].label}
+            </a>
+          ) : (
+            <div class="flex gap-2 shrink-0">
+              {buttons.map((b) => (
+                <a
+                  href={b.href}
+                  download
+                  class="btn-primary inline-flex items-center justify-center gap-1.5 text-xs px-3"
+                >
+                  <Download size={14} />
+                  {b.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

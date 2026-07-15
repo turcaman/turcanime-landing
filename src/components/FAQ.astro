@@ -2,11 +2,19 @@
 const faq = [
   {
     q: '¿Es gratis?',
-    a: 'Sí, completamente gratis. Sin suscripciones, sin compras, sin publicidad.',
+    a: 'Sí, completamente gratis en todas las plataformas. Sin suscripciones, sin compras, sin publicidad.',
   },
   {
-    q: '¿Necesito root?',
-    a: 'No. Funciona en cualquier Android estándar, sin permisos especiales ni configuraciones raras.',
+    q: '¿En qué sistemas funciona?',
+    a: 'Android (teléfonos y tablet), Windows 10+ y Linux (x86_64, con paquetes .deb y .rpm). macOS está en camino.',
+  },
+  {
+    q: '¿Qué requisitos tiene el escritorio?',
+    a: 'Windows 10+ o cualquier distribución Linux x86_64 reciente. No necesita cuenta ni configuración especial: descargás el instalador y listo.',
+  },
+  {
+    q: '¿Necesito root o permisos especiales?',
+    a: 'No. En Android funciona en cualquier equipo estándar sin root. En escritorio, solo seguís el asistente de instalación normal de tu sistema.',
   },
   {
     q: '¿Qué hago si no carga un video?',
@@ -14,20 +22,20 @@ const faq = [
   },
   {
     q: '¿Es segura?',
-    a: 'No guarda ni envía ningún dato personal. Todo queda en tu dispositivo.',
+    a: 'No guarda ni envía ningún dato personal. Todo queda en tu dispositivo, sin rastreo ni cuentas.',
   },
   {
     q: '¿Se actualiza sola?',
-    a: 'No. Cuando haya una versión nueva, descargá el APK desde la página de la app.',
+    a: 'La app de escritorio se actualiza sola al reabrirla tras una nueva versión. En Android, cuando haya una versión nueva descargás el APK desde esta página.',
   },
   {
-    q: '¿Sirve en tablet o TV?',
-    a: 'Está pensada para teléfonos. En tablet funciona, pero la interfaz no está optimizada para pantallas grandes.',
+    q: '¿Sirve en tablet, TV o Mac?',
+    a: 'En tablet funciona, aunque la interfaz está pensada para teléfonos. En escritorio corre en Windows y Linux; la versión para macOS llegará pronto.',
   },
 ];
 ---
 
-<section class="px-5 py-24 border-t border-border">
+<section id="faq" class="px-5 py-24 border-t border-border">
   <div class="max-w-3xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">Preguntas frecuentes</h2>
     <p class="text-text-secondary text-center text-sm mb-14 max-w-lg mx-auto">

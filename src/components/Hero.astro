@@ -1,6 +1,5 @@
 ---
-import DownloadButton from './DownloadButton.astro';
-import { release } from '../lib/release';
+import DownloadMenu from './DownloadMenu.astro';
 
 const particles = Array.from({ length: 8 }, () => ({
   left: `${Math.random() * 100}%`,
@@ -48,20 +47,13 @@ const particles = Array.from({ length: 8 }, () => ({
     </h1>
 
     <p class="text-lg md:text-xl text-text-secondary mb-2 font-medium tracking-wide">
-      Ver anime sin límites. <span class="text-primary">Técnicamente.</span>
+      Tu anime, en todas tus pantallas. <span class="text-primary">Técnicamente.</span>
     </p>
 
     <div class="h-10" />
 
     <div class="flex justify-center">
-      <DownloadButton />
-    </div>
-
-    <div class="mt-5">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-xs font-mono text-text-secondary">
-        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-glow-pulse" />
-        v{release.version}
-      </span>
+      <DownloadMenu />
     </div>
   </div>
 </section>

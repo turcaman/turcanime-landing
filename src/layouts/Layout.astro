@@ -8,6 +8,9 @@ interface Props {
 
 const { title } = Astro.props;
 
+const metaDescription =
+	'Descargá Turcanime y mirá anime gratis en Android, Windows y Linux. Streaming nativo, sin publicidad, sin registro, sin límites.';
+
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -18,7 +21,22 @@ const structuredData = {
 			applicationCategory: 'Multimedia',
 			description:
 				'Descargá Turcanime APK y mirá anime en Android totalmente gratis. Streaming nativo HLS, sin publicidad, sin registro, sin límites.',
-			version: release.version,
+			version: release.android.version,
+			downloadUrl: release.android.apkUrl,
+			offers: {
+				'@type': 'Offer',
+				price: '0',
+				priceCurrency: 'USD',
+			},
+		},
+		{
+			'@type': 'SoftwareApplication',
+			name: 'Turcanime Desktop',
+			operatingSystem: 'Windows, Linux',
+			applicationCategory: 'Multimedia',
+			description:
+				'App de escritorio de Turcanime para Windows y Linux. La misma experiencia sin límites en tu computadora.',
+			version: release.desktop.version,
 			offers: {
 				'@type': 'Offer',
 				price: '0',
@@ -30,7 +48,7 @@ const structuredData = {
 			name: 'Turcanime',
 			url: 'https://turcanime.pages.dev',
 			description:
-				'App de anime para Android. Streaming nativo, sin anuncios, sin cuentas.',
+				'App de anime multiplataforma: Android, Windows y Linux. Streaming nativo, sin anuncios, sin cuentas.',
 		},
 	],
 };
@@ -44,15 +62,15 @@ const structuredData = {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="canonical" href={Astro.url} />
 
-		<meta name="description" content="Descargá Turcanime APK y mirá anime en Android totalmente gratis. Streaming nativo HLS, sin publicidad, sin registro, sin límites." />
-		<meta name="keywords" content="Turcanime, anime APK, ver anime en Android, streaming anime gratis, app anime sin anuncios, descargar anime Android" />
+		<meta name="description" content={metaDescription} />
+		<meta name="keywords" content="Turcanime, anime APK, ver anime en Android, app anime para PC, Turcanime Desktop, streaming anime gratis, app anime sin anuncios, descargar anime Windows Linux Android" />
 		<meta name="robots" content="index, follow" />
 		<meta name="google-site-verification" content="inisPcLQqbRi1tEyPP_nFq2EmMI54_cXhb_QIFlcTaw" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Descargá Turcanime APK y mirá anime en Android totalmente gratis. Streaming nativo HLS, sin publicidad, sin registro, sin límites." />
+		<meta property="og:description" content={metaDescription} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:site_name" content="Turcanime" />
@@ -61,7 +79,7 @@ const structuredData = {
 		<meta property="og:image:height" content="1024" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content="Descargá Turcanime APK y mirá anime en Android totalmente gratis. Streaming nativo HLS, sin publicidad, sin registro, sin límites." />
+		<meta name="twitter:description" content={metaDescription} />
 		<meta name="twitter:image" content="https://turcanime.pages.dev/og-image.webp" />
 
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

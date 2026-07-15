@@ -1,44 +1,91 @@
 import { writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 
-const REPO = "turcaman/turcanime";
+const ANDROID_REPO = "turcaman/turcanime";
+const DESKTOP_REPO = "turcaman/turcanime-desktop";
 const RELEASE_FILE = new URL("../src/lib/release.ts", import.meta.url);
 
-const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-  headers: { "User-Agent": "turcanime-landing-bump" },
-});
+async function fetchLatest(repo) {
+  const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+    headers: { "User-Agent": "turcanime-landing-bump" },
+  });
 
-if (!res.ok) {
-  console.error(`GitHub API error: ${res.status} ${res.statusText}`);
+  if (!res.ok) {
+    throw new Error(`GitHub API error (${repo}): ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
+
+function pickAsset(assets, predicate) {
+  const asset = (assets ?? []).find((a) => predicate(String(a.name ?? "")));
+  return asset?.browser_download_url ? String(asset.browser_download_url) : null;
+}
+
+const android = await fetchLatest(ANDROID_REPO);
+const androidTag = String(android.tag_name ?? "");
+const androidVersion = androidTag.replace(/^v/i, "");
+const apkUrl = pickAsset(android.assets, (n) => n.endsWith(".apk"));
+
+if (!androidVersion || !apkUrl) {
+  console.error("No se pudo determinar la versión o el APK desde el release de Android.");
   process.exit(1);
 }
 
-const data = await res.json();
-const tag = String(data.tag_name ?? "");
-const version = tag.replace(/^v/i, "");
+let desktop = {
+  version: "",
+  windows: { exeUrl: "" },
+  linux: { debUrl: "", rpmUrl: "" },
+  macos: { available: false },
+};
 
-const apkAsset = (data.assets ?? []).find((a) =>
-  String(a.name ?? "").endsWith(".apk")
-);
+try {
+  const d = await fetchLatest(DESKTOP_REPO);
+  const desktopTag = String(d.tag_name ?? "");
+  const desktopVersion = desktopTag.replace(/^v/i, "");
 
-if (!version || !apkAsset?.browser_download_url) {
-  console.error("No se pudo determinar la versión o el APK desde el release.");
-  process.exit(1);
+  const exeUrl = pickAsset(d.assets, (n) => /win.*\.exe$/i.test(n) || n.endsWith("-setup.exe"));
+  const debUrl = pickAsset(d.assets, (n) => n.endsWith(".deb"));
+  const rpmUrl = pickAsset(d.assets, (n) => n.endsWith(".rpm"));
+
+  if (desktopVersion && (exeUrl || debUrl || rpmUrl)) {
+    desktop = {
+      version: desktopVersion,
+      windows: { exeUrl: exeUrl ?? "" },
+      linux: { debUrl: debUrl ?? "", rpmUrl: rpmUrl ?? "" },
+      macos: { available: false },
+    };
+  }
+} catch (err) {
+  console.warn(`No se pudo obtener el release de desktop: ${err.message}. Se omite.`);
 }
-
-const apkUrl = String(apkAsset.browser_download_url);
 
 const content = `export const release = {
-  version: "${version}",
-  apkUrl: "${apkUrl}",
+  android: {
+    version: "${androidVersion}",
+    apkUrl: "${apkUrl}",
+  },
+  desktop: {
+    version: "${desktop.version}",
+    windows: {
+      exeUrl: "${desktop.windows.exeUrl}",
+    },
+    linux: {
+      debUrl: "${desktop.linux.debUrl}",
+      rpmUrl: "${desktop.linux.rpmUrl}",
+    },
+    macos: {
+      available: ${desktop.macos.available},
+    },
+  },
 } as const;
 `;
 
 writeFileSync(RELEASE_FILE, content);
 
 execSync(`git add ${RELEASE_FILE.pathname}`, { stdio: "inherit" });
-execSync(`git commit -m "chore: bump version to ${version}"`, {
+execSync(`git commit -m "chore: bump version to android ${androidVersion}${desktop.version ? ` / desktop ${desktop.version}` : ""}"`, {
   stdio: "inherit",
 });
 
-console.log(`Version actualizada a ${version}`);
+console.log(`Versiones actualizadas — Android ${androidVersion}${desktop.version ? `, Desktop ${desktop.version}` : ""}`);

@@ -1,0 +1,43 @@
+---
+import { Download } from '@lucide/astro';
+import { release } from '../lib/release';
+
+const map = {
+  windows: { label: 'Windows', href: release.desktop.windows.exeUrl },
+  android: { label: 'Android', href: release.android.apkUrl },
+  linux: { label: 'Linux', href: '#descargas' },
+  macos: { label: '', href: '#descargas' },
+};
+---
+
+<a
+  id="dm-primary"
+  href={release.android.apkUrl}
+  class="btn-primary inline-flex items-center justify-center gap-2 min-w-[200px]"
+>
+  <Download size={18} />
+  <span id="dm-label">Descargar</span>
+</a>
+
+<script define:vars={{ map }}>
+  const primary = document.getElementById('dm-primary');
+  const label = document.getElementById('dm-label');
+
+  function detectOS() {
+    const ua = navigator.userAgent;
+    if (/Win/i.test(ua)) return 'windows';
+    if (/Mac/i.test(ua)) return 'macos';
+    if (/Android/i.test(ua)) return 'android';
+    if (/Linux/i.test(ua)) return 'linux';
+    return 'unknown';
+  }
+
+  const it = map[detectOS()];
+  if (it && it.href) {
+    primary.setAttribute('href', it.href);
+    label.textContent = it.label ? `Descargar para ${it.label}` : 'Ver plataformas';
+  } else {
+    primary.setAttribute('href', '#descargas');
+    label.textContent = 'Ver plataformas';
+  }
+</script>

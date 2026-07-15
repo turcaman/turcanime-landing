@@ -1,11 +1,20 @@
 ---
-import { release } from '../lib/release';
+import { Download } from '@lucide/astro';
+
+interface Props {
+  href: string;
+  label: string;
+  download?: boolean;
+}
+
+const { href, label, download = false } = Astro.props;
 ---
 
 <a
-	href={release.apkUrl}
-	class="btn-primary inline-flex items-center justify-center min-w-[140px]"
-	download
+  href={href}
+  class="btn-primary inline-flex items-center justify-center gap-2 min-w-[140px]"
+  download={download}
 >
-	Descargar APK
+  <Download size={16} />
+  {label}
 </a>
