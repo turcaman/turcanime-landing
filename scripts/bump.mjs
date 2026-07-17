@@ -36,7 +36,6 @@ let desktop = {
   version: "",
   windows: { exeUrl: "" },
   linux: { debUrl: "", rpmUrl: "" },
-  macos: { available: false },
 };
 
 try {
@@ -53,7 +52,6 @@ try {
       version: desktopVersion,
       windows: { exeUrl: exeUrl ?? "" },
       linux: { debUrl: debUrl ?? "", rpmUrl: rpmUrl ?? "" },
-      macos: { available: false },
     };
   }
 } catch (err) {
@@ -73,9 +71,6 @@ const content = `export const release = {
     linux: {
       debUrl: "${desktop.linux.debUrl}",
       rpmUrl: "${desktop.linux.rpmUrl}",
-    },
-    macos: {
-      available: ${desktop.macos.available},
     },
   },
 } as const;

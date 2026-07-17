@@ -46,7 +46,7 @@ No test, lint, or typecheck scripts exist. Generated types live in `.astro/types
 ### Version Management
 `src/lib/release.ts` exports a `release` const with:
 - `android: { version, apkUrl }`
-- `desktop: { version, windows: { exeUrl }, linux: { debUrl, rpmUrl }, macos: { available } }`
+- `desktop: { version, windows: { exeUrl }, linux: { debUrl, rpmUrl } }`
 
 Updated by `scripts/bump.mjs` which:
 1. Fetches latest release from `turcaman/turcanime` → extracts APK asset
@@ -87,7 +87,7 @@ Updated by `scripts/bump.mjs` which:
 
 - **Hero.astro**: Full-screen hero with kanji glitch effect (解), particle animation, title, tagline, DownloadMenu, version badge
 - **Features.astro**: 3-column grid with Lucide icons (Play, Search, Shield), `card-feature` styling
-- **Downloads.astro**: 4-platform cards (Android, Windows, Linux, macOS) with version badges and download buttons; macOS disabled "Próximamente"
+- **Downloads.astro**: 3-platform cards (Android, Windows, Linux) with version badges and download buttons
 - **DownloadMenu.astro**: OS-detecting primary button (Android/Windows/Linux → direct download; others → anchor to #descargas)
 - **FAQ.astro**: `<details>` elements with `+`/`×` rotate toggle, `card-feature` styling
 - **Footer.astro**: Two GitHub links (Android + Desktop) centered, tagline

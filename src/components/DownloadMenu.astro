@@ -6,7 +6,6 @@ const map = {
   windows: { label: 'Windows', href: release.desktop.windows.exeUrl },
   android: { label: 'Android', href: release.android.apkUrl },
   linux: { label: 'Linux', href: '#descargas' },
-  macos: { label: '', href: '#descargas' },
 };
 ---
 
@@ -26,7 +25,6 @@ const map = {
   function detectOS() {
     const ua = navigator.userAgent;
     if (/Win/i.test(ua)) return 'windows';
-    if (/Mac/i.test(ua)) return 'macos';
     if (/Android/i.test(ua)) return 'android';
     if (/Linux/i.test(ua)) return 'linux';
     return 'unknown';

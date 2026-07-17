@@ -54,7 +54,7 @@ public/         → favicon.webp, og-image.webp, robots.txt, sitemap.xml
 
 - **Single-page landing** in Spanish with Hero, Features, Downloads, FAQ, and Footer
 - **Animated Hero** with kanji glitch effect (解), floating particles, and pulsing glow
-- **Multi-platform downloads**: Android (APK), Windows (.exe), Linux (.deb/.rpm), macOS (coming soon)
+- **Multi-platform downloads**: Android (APK), Windows (.exe), Linux (.deb/.rpm)
 - **Smart OS-detect button** offering the correct direct download for the visitor's platform
 - **Custom dark theme** with CSS tokens (`bg-bg`, `text-text-primary`, etc.)
 - **Self-hosted fonts** (Inter + JetBrains Mono) via Fontsource
@@ -82,9 +82,6 @@ export const release = {
     linux: {
       debUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.0.6/Turcanime-1.0.6-linux-x64.deb",
       rpmUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.0.6/Turcanime-1.0.6-linux-x64.rpm",
-    },
-    macos: {
-      available: false,
     },
   },
 } as const;
