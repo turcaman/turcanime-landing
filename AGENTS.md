@@ -1,97 +1,68 @@
 # AGENTS.md
 
-Instructions for AI coding agents working on this project. Complement to README.md — read that first for project overview.
+Instructions for AI coding agents. Complement to README.md.
+
+> Before writing code, check the available skills and load the relevant one.
 
 ## Quick Commands
 
-| Script   | Command                      | Description                         |
-|----------|------------------------------|-------------------------------------|
-| dev      | `npm run dev`                | Start dev server (localhost:4321)   |
-| build    | `npm run build`              | Build static site to `dist/`        |
-| preview  | `npm run preview`            | Preview production build locally    |
-| bump     | `node scripts/bump.mjs`      | Fetch latest GitHub releases → update version & download URLs |
+| Command     | Action                                      |
+|-------------|---------------------------------------------|
+| `npm run dev` | Start dev server at localhost:4321        |
+| `npm run build` | Build static site to `dist/`            |
+| `npm run preview` | Preview production build locally       |
+| `npm run bump` | Fetch latest releases, update versions    |
 
-No test, lint, or typecheck scripts exist. Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
+No test, lint, or typecheck scripts are configured. Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
 
-## Project Overview
+## Project
 
-**Astro 6** static site. Multi-platform landing page for Android + Desktop apps.
+- **Framework/Runtime**: Astro 6 · Node >= 22.12.0 · static output (`dist/`)
+- **Bundler/Routing**: Vite (built-in Astro) · file-based routing
+- **State management**: none — static site, no JS runtime
+- **Import aliases**: none configured
+- **Styling**: Tailwind CSS 4 via `@tailwindcss/vite` (no PostCSS, no `tailwind.config.*`). Brand colors via CSS tokens (`bg-bg`, `text-text-primary`)
+- **TypeScript**: strict (`extends astro/tsconfigs/strict`)
 
-- **Output**: `dist/` (fully static, no JS runtime)
-- **Styling**: Tailwind CSS 4 via `@tailwindcss/vite` plugin (no PostCSS, no `tailwind.config.*`)
-- **Icons**: Lucide (`@lucide/astro`)
-- **Fonts**: Self-hosted via Fontsource (Inter + JetBrains Mono)
-- **Sitemap**: Static `sitemap.xml` in `public/` — no plugin dependency
-- **Node**: >= 22.12.0
-- **Language**: Spanish (`lang="es"` on `<html>`)
+## Key Files
 
-## Key Files Reference
+| File | Purpose |
+|------|---------|
+| `src/lib/release.ts` | Version + download URLs (Android + Desktop) |
+| `scripts/bump.mjs` | Automated version bump from GitHub releases |
+| `src/layouts/Layout.astro` | SEO, OG, JSON-LD, canonical |
+| `src/components/Hero.astro` | Hero with kanji glitch effect |
+| `src/components/Features.astro` | Feature cards (3-column grid) |
+| `src/components/Downloads.astro` | Multi-platform download cards |
+| `src/components/DownloadMenu.astro` | OS-detecting download button |
+| `src/components/FAQ.astro` | FAQ accordion |
+| `src/components/Footer.astro` | Footer with GitHub links |
+| `src/styles/global.css` | Design tokens, animations, scanlines |
+| `src/pages/index.astro` | Single-page composition |
 
-| Purpose                            | File                                                  |
-|------------------------------------|-------------------------------------------------------|
-| Version + download URLs (Android + Desktop) | `src/lib/release.ts`                                  |
-| Automated version bump script      | `scripts/bump.mjs`                                    |
-| SEO, OG, JSON-LD, canonical        | `src/layouts/Layout.astro`                            |
-| Hero (kanji glitch, particles)     | `src/components/Hero.astro`                           |
-| Features grid (3 columns)          | `src/components/Features.astro`                       |
-| Multi-platform download cards      | `src/components/Downloads.astro`                      |
-| OS-aware download button           | `src/components/DownloadMenu.astro`                   |
-| FAQ accordion                      | `src/components/FAQ.astro`                            |
-| Footer (GitHub links)              | `src/components/Footer.astro`                         |
-| Design tokens, animations, scanlines | `src/styles/global.css`                              |
-| Single page composition            | `src/pages/index.astro`                               |
+## Linting Rules
 
-## Architecture
+None configured. No CI pipeline enforces linting.
 
-### Version Management
-`src/lib/release.ts` exports a `release` const with:
-- `android: { version, apkUrl }`
-- `desktop: { version, windows: { exeUrl }, linux: { debUrl, rpmUrl } }`
+## CI/CD Gotchas
 
-Updated by `scripts/bump.mjs` which:
-1. Fetches latest release from `turcaman/turcanime` → extracts APK asset
-2. Fetches latest release from `turcaman/turcanime-desktop` → extracts `.exe`, `.deb`, `.rpm` assets
-3. Writes `release.ts` and commits automatically
-
-### SEO / Structured Data (Layout.astro)
-- **SoftwareApplication** ×2: Android app + Desktop app (with version + downloadUrl)
-- **WebSite**: landing page metadata
-- **Open Graph**: title, description, image, type, url, site_name
-- **Twitter Card**: summary_large_image
-- **Google Site Verification**: meta tag
-- **Canonical URL**: dynamic via `Astro.url`
-
-### Animations & Visual Effects (global.css)
-- **CSS custom properties** (`@theme`): colors, fonts — used via `bg-bg`, `text-text-primary`, etc.
-- **Component classes** (`@layer components`): `.btn-primary`, `.card-feature`
-- **Utilities** (`@layer utilities`):
-  - `glitch` keyframe (dual-layer red + purple offset)
-  - `glow-pulse` (purple glow)
-  - `particle-float` (rising particles in Hero)
-  - `.kanji-glitch` (pseudo-element glitch on 解 kanji)
-  - `.scanlines` (fixed overlay with repeating purple-tinted lines on `<body>`)
-- **Reduced motion** respected via `@media (prefers-reduced-motion: reduce)`
+- No CI config in repo — deployment is manual via Cloudflare Pages
+- `public/sitemap.xml` has hardcoded dates; update when site structure changes
+- Verify with `npm run build` before deploying — no automated checks
 
 ## Conventions
 
-- **Spanish UI** — all user-facing strings in Spanish
-- **Dark theme** — Black background (`--color-bg: #000`) with purple accent (`--color-primary: #A855F7`)
-- **No Tailwind classes for brand colors** — use CSS tokens: `bg-bg`, `text-text-primary`, `text-text-secondary`, `bg-surface`, `border-border`
-- **No CI, no pre-commit hooks, no formatter config**
-- **No tests, no lint, no typecheck scripts**
-- **Deployed on Cloudflare Pages** (domain: `turcanime.pages.dev`)
-- **Static sitemap.xml** in `public/` — committed to git
-- **Minimal comments** — only for non-obvious workarounds
+- **UI language**: Spanish (`lang="es"`)
+- **Theme**: Dark (#000 bg, #A855F7 accent). Brand colors via CSS tokens only
+- **Comments**: Minimal — only for non-obvious workarounds
+- **Runtime**: 100% static — no JavaScript runtime
+- **Config**: No Tailwind config file (v4 uses Vite plugin). No PostCSS.
 
-## Component Details
+## 🚫 Rules
 
-- **Hero.astro**: Full-screen hero with kanji glitch effect (解), particle animation, title, tagline, DownloadMenu, version badge
-- **Features.astro**: 3-column grid with Lucide icons (Play, Search, Shield), `card-feature` styling
-- **Downloads.astro**: 3-platform cards (Android, Windows, Linux) with version badges and download buttons
-- **DownloadMenu.astro**: OS-detecting primary button (Android/Windows/Linux → direct download; others → anchor to #descargas)
-- **FAQ.astro**: `<details>` elements with `+`/`×` rotate toggle, `card-feature` styling
-- **Footer.astro**: Two GitHub links (Android + Desktop) centered, tagline
-
-## Generated / Gitignored
-
-- `.astro/` (generated types), `dist/` (build output), `.codegraph/` (local knowledge graph), `node_modules/` — all gitignored
+- Do NOT add runtime JavaScript dependencies — site must stay 100% static
+- Do NOT use Tailwind utility classes for brand colors — use `bg-bg`, `text-text-primary`, etc.
+- Do NOT create test, lint, or typecheck scripts — none are configured
+- Do NOT add PostCSS config or `tailwind.config.*` — Tailwind 4 uses the Vite plugin
+- Do NOT edit `src/lib/release.ts` manually — run `npm run bump` instead
+- Do NOT commit without running `npm run build` first
