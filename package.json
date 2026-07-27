@@ -13,6 +13,7 @@
     "bump": "node scripts/bump.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/inter": "^5.2.5",
     "@fontsource/jetbrains-mono": "^5.2.5",
     "@lucide/astro": "^1.14.0",

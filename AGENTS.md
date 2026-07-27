@@ -47,7 +47,7 @@ None configured. No CI pipeline enforces linting.
 ## CI/CD Gotchas
 
 - No CI config in repo — deployment is manual via Cloudflare Pages
-- `public/sitemap.xml` has hardcoded dates; update when site structure changes
+- Sitemap generated automatically by `@astrojs/sitemap` — no manual maintenance
 - Verify with `npm run build` before deploying — no automated checks
 
 ## Conventions

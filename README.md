@@ -32,7 +32,7 @@ src/
   pages/        → index.astro (página única)
   styles/       → global.css (Tailwind, tema, animaciones)
 scripts/        → bump.mjs (actualización automática de versión)
-public/         → favicon.webp, og-image.webp, robots.txt, sitemap.xml
+public/         → favicon.webp, og-image.webp, robots.txt
 ```
 
 ## Convenciones
