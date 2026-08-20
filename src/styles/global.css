@@ -42,11 +42,14 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer;
+    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 active:brightness-95;
     background-color: var(--color-primary-btn);
   }
   .card-feature {
     @apply p-6 rounded-xl bg-surface border border-border transition-all duration-200;
+  }
+  .glow-text {
+    text-shadow: 0 0 24px rgba(168, 85, 247, 0.55), 0 0 60px rgba(168, 85, 247, 0.25);
   }
 }
 
@@ -66,20 +69,11 @@
     85% { transform: translate(0); }
   }
 
-  @keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
-    50% { box-shadow: 0 0 35px rgba(168, 85, 247, 0.5); }
-  }
-
   @keyframes particle-float {
     0% { transform: translateY(0) translateX(0); opacity: 0; will-change: transform, opacity; }
     10% { opacity: 0.8; will-change: transform, opacity; }
     90% { opacity: 0.4; will-change: transform, opacity; }
     100% { transform: translateY(-120vh) translateX(30px); opacity: 0; will-change: transform, opacity; }
-  }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 2s ease-in-out infinite;
   }
 
   .kanji-glitch {
@@ -129,5 +123,13 @@
     );
     pointer-events: none;
     z-index: 9998;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kanji-glitch::before,
+  .kanji-glitch::after,
+  .particle {
+    animation: none !important;
   }
 }
