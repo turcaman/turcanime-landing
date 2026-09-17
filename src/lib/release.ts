@@ -1,7 +1,7 @@
 export const release = {
   android: {
-    version: "1.10.15",
-    apkUrl: "https://github.com/turcaman/turcanime/releases/download/v1.10.15/turcanime-1.10.15.apk",
+    version: "1.11.0",
+    apkUrl: "https://github.com/turcaman/turcanime/releases/download/v1.11.0/turcanime-1.11.0.apk",
   },
   desktop: {
     version: "1.4.0",
