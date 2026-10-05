@@ -76,7 +76,18 @@ const content = `export const release = {
 
 writeFileSync(RELEASE_FILE, content);
 
-execSync(`git add ${RELEASE_FILE.pathname}`, { stdio: "inherit" });
+execSync(`git add "${RELEASE_FILE.pathname}"`, { stdio: "inherit" });
+
+try {
+  execSync("git diff --cached --quiet", { stdio: "ignore" });
+  console.log(
+    `Sin cambios — ya actualizado (Android ${androidVersion}${desktop.version ? `, Desktop ${desktop.version}` : ""})`
+  );
+  process.exit(0);
+} catch {
+  // git diff sale con código 1 cuando SÍ hay cambios: continuar al commit.
+}
+
 execSync(`git commit -m "chore: bump version to android ${androidVersion}${desktop.version ? ` / desktop ${desktop.version}` : ""}"`, {
   stdio: "inherit",
 });
