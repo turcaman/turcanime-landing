@@ -10,15 +10,15 @@ const faq = [
   },
   {
     q: '¿Qué requisitos tiene el escritorio?',
-    a: 'Windows 10+ o cualquier distribución Linux x86_64 reciente. En Windows descargás el .exe y seguís el asistente. En Linux descargás el AppImage, le das permiso de ejecución y lo abrís: no requiere instalación.',
+    a: 'Windows 10+ o una distribución Linux x86_64 reciente. En Windows descargás el .exe y seguís el asistente. En Linux descargás el AppImage, le das permiso de ejecución y lo abrís: no requiere instalación.',
   },
   {
     q: '¿Necesito root o permisos especiales?',
-    a: 'No. En Android funciona en cualquier equipo estándar sin root. En Windows seguís el asistente de instalación normal, y en Linux solo necesitás marcar el AppImage como ejecutable una vez.',
+    a: 'No. En Android anda sin root. En Windows seguís el asistente, y en Linux marcás el AppImage como ejecutable una sola vez.',
   },
   {
     q: '¿Qué hago si no carga un video?',
-    a: 'La app reintenta automáticamente si hay un error de conexión. Si el problema persiste, entrá a Ajustes > Renovar conexión para refrescar la sesión.',
+    a: 'La app reintenta y renueva la sesión sola. Si igual no carga, entrá a Ajustes > Renovar conexión.',
   },
   {
     q: '¿Es segura?',
@@ -26,15 +26,15 @@ const faq = [
   },
   {
     q: '¿Se actualiza sola?',
-    a: 'La app te avisa cuando hay una versión nueva y la actualizás desde Ajustes > Actualizaciones, con barra de progreso y sin descargar nada a mano. En Windows se abre el instalador y en Linux el AppImage se reemplaza solo y reinicia la app.',
+    a: 'Te avisa cuando hay versión nueva y la instalás desde Ajustes > Actualizaciones, con barra de progreso. En Android y Windows se abre el instalador; en Linux el AppImage se reemplaza solo y la app se reinicia.',
   },
   {
     q: '¿Sirve en tablet o TV?',
-    a: 'En tablet funciona, aunque la interfaz está optimizada para teléfonos.',
+    a: 'En tablet sí, aunque la interfaz está pensada para teléfonos.',
   },
   {
     q: '¿En qué se diferencia de otras apps?',
-    a: 'No es un sitio web disfrazado de app. Está hecha como app nativa en cada plataforma, sin publicidad, sin cuentas y sin rastreo. Funciona en Android, Windows y Linux.',
+    a: 'No es un sitio web disfrazado de app. Nativa en cada plataforma, sin publicidad, sin cuentas y sin rastreo.',
   },
 ];
 ---
@@ -43,7 +43,7 @@ const faq = [
   <div class="max-w-3xl mx-auto">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">Preguntas frecuentes</h2>
     <p class="text-text-secondary text-center text-sm mb-14 max-w-lg mx-auto">
-      Todo lo que necesitás saber antes de descargar.
+      Lo esencial antes de descargar.
     </p>
 
     <div class="space-y-3">
