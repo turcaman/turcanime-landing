@@ -23,11 +23,8 @@ const platforms = [
     id: 'linux',
     name: 'Linux',
     version: `v${release.desktop.version}`,
-    meta: '.deb / .rpm',
-    buttons: [
-      { label: '.deb', href: release.desktop.linux.debUrl },
-      { label: '.rpm', href: release.desktop.linux.rpmUrl },
-    ],
+    meta: '.AppImage',
+    buttons: [{ label: 'Descargar', sub: '.AppImage', href: release.desktop.linux.appImageUrl }],
     disabled: false,
   },
 ];
@@ -41,7 +38,7 @@ const platforms = [
     </p>
 
     <div class="flex flex-wrap gap-4 justify-center">
-      {platforms.map(({ id, name, version, meta, buttons, disabled }) => (
+      {platforms.map(({ name, version, meta, buttons, disabled }) => (
         <div
           class=`card-feature flex items-center justify-between gap-4 w-full sm:w-[calc(50%-0.5rem)] ${disabled ? 'opacity-60' : ''}`
         >

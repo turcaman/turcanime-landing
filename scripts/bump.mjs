@@ -35,7 +35,7 @@ if (!androidVersion || !apkUrl) {
 let desktop = {
   version: "",
   windows: { exeUrl: "" },
-  linux: { debUrl: "", rpmUrl: "" },
+  linux: { appImageUrl: "" },
 };
 
 try {
@@ -44,14 +44,13 @@ try {
   const desktopVersion = desktopTag.replace(/^v/i, "");
 
   const exeUrl = pickAsset(d.assets, (n) => /win.*\.exe$/i.test(n) || n.endsWith("-setup.exe"));
-  const debUrl = pickAsset(d.assets, (n) => n.endsWith(".deb"));
-  const rpmUrl = pickAsset(d.assets, (n) => n.endsWith(".rpm"));
+  const appImageUrl = pickAsset(d.assets, (n) => n.toLowerCase().endsWith(".appimage"));
 
-  if (desktopVersion && (exeUrl || debUrl || rpmUrl)) {
+  if (desktopVersion && (exeUrl || appImageUrl)) {
     desktop = {
       version: desktopVersion,
       windows: { exeUrl: exeUrl ?? "" },
-      linux: { debUrl: debUrl ?? "", rpmUrl: rpmUrl ?? "" },
+      linux: { appImageUrl: appImageUrl ?? "" },
     };
   }
 } catch (err) {
@@ -69,8 +68,7 @@ const content = `export const release = {
       exeUrl: "${desktop.windows.exeUrl}",
     },
     linux: {
-      debUrl: "${desktop.linux.debUrl}",
-      rpmUrl: "${desktop.linux.rpmUrl}",
+      appImageUrl: "${desktop.linux.appImageUrl}",
     },
   },
 } as const;
