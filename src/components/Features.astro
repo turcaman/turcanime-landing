@@ -1,11 +1,21 @@
 ---
-import { Monitor, Lock, Clock } from '@lucide/astro';
+import { Monitor, Lock, Clock, RefreshCw, Search, Bell } from '@lucide/astro';
 
 const features = [
   {
     icon: Monitor,
     title: 'Donde la uses, corre nativa',
     desc: 'App nativa para Android, app de escritorio para Windows y Linux. Cada plataforma con sus propios controles y su interfaz.',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Se actualiza desde la app',
+    desc: 'Cuando hay versión nueva te avisa y la descargás con progreso desde Ajustes. En Android abre el instalador, en Windows también, y en Linux el AppImage se reemplaza solo.',
+  },
+  {
+    icon: Search,
+    title: 'Buscador que ayuda',
+    desc: 'Sugerencias mientras escribís, búsquedas recientes a un toque y atajos como Ctrl+K en escritorio para encontrar tu anime más rápido.',
   },
   {
     icon: Lock,
@@ -17,6 +27,11 @@ const features = [
     title: 'Tu progreso se guarda solo',
     desc: 'Cada episodio se marca automáticamente. Cerrás la app y volvés exactamente donde lo dejaste.',
   },
+  {
+    icon: Bell,
+    title: 'Conexión que se arregla sola',
+    desc: 'Si un video no carga, la app reintenta sola y renueva la sesión. Y desde Ajustes podés renovar la conexión cuando quieras.',
+  },
 ];
 ---
 
@@ -27,7 +42,7 @@ const features = [
       App nativa, sin cuentas, sin publicidad. Así debería funcionar.
     </p>
 
-    <div class="grid md:grid-cols-3 gap-5">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {features.map(({ icon: Icon, title, desc }) => (
         <div class="card-feature">
           <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
