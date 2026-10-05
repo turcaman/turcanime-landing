@@ -87,17 +87,17 @@ const structuredData = {
 				{
 					'@type': 'Question',
 					name: '¿En qué sistemas funciona?',
-					acceptedAnswer: { '@type': 'Answer', text: 'Android (teléfonos y tablet), Windows 10+ y Linux (x86_64, con paquetes .deb y .rpm).' },
+					acceptedAnswer: { '@type': 'Answer', text: 'Android (teléfonos y tablet), Windows 10+ y Linux (x86_64, con AppImage).' },
 				},
 				{
 					'@type': 'Question',
 					name: '¿Qué requisitos tiene el escritorio?',
-					acceptedAnswer: { '@type': 'Answer', text: 'Windows 10+ o cualquier distribución Linux x86_64 reciente. No necesita cuenta ni configuración especial: descargás el instalador y listo.' },
+					acceptedAnswer: { '@type': 'Answer', text: 'Windows 10+ o cualquier distribución Linux x86_64 reciente. En Windows descargás el .exe y seguís el asistente. En Linux descargás el AppImage, le das permiso de ejecución y lo abrís: no requiere instalación.' },
 				},
 				{
 					'@type': 'Question',
 					name: '¿Necesito root o permisos especiales?',
-					acceptedAnswer: { '@type': 'Answer', text: 'No. En Android funciona en cualquier equipo estándar sin root. En escritorio, solo seguís el asistente de instalación normal de tu sistema.' },
+					acceptedAnswer: { '@type': 'Answer', text: 'No. En Android funciona en cualquier equipo estándar sin root. En Windows seguís el asistente de instalación normal, y en Linux solo necesitás marcar el AppImage como ejecutable una vez.' },
 				},
 				{
 					'@type': 'Question',
@@ -112,7 +112,7 @@ const structuredData = {
 				{
 					'@type': 'Question',
 					name: '¿Se actualiza sola?',
-					acceptedAnswer: { '@type': 'Answer', text: 'No tiene auto-actualización. Cuando hay una versión nueva, la app te avisa y descargás el instalador desde la página de descargas.' },
+					acceptedAnswer: { '@type': 'Answer', text: 'La app te avisa cuando hay una versión nueva y la actualizás desde Ajustes > Actualizaciones, con barra de progreso y sin descargar nada a mano. En Windows se abre el instalador y en Linux el AppImage se reemplaza solo y reinicia la app.' },
 				},
 				{
 					'@type': 'Question',
