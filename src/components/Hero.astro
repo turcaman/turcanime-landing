@@ -1,40 +1,14 @@
 ---
 import DownloadMenu from './DownloadMenu.astro';
-
-const particles = Array.from({ length: 8 }, () => ({
-  left: `${Math.random() * 100}%`,
-  top: `${Math.random() * 100}%`,
-  size: `${Math.random() * 2 + 1}px`,
-  delay: `${Math.random() * 6}s`,
-  duration: `${Math.random() * 6 + 5}s`,
-}));
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-12">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.06)_0%,transparent_60%)] pointer-events-none" />
-
-  <div aria-hidden="true">
-  {particles.map((p) => (
-    <span
-      class="particle absolute rounded-full bg-primary pointer-events-none"
-      style={{
-        left: p.left,
-        top: p.top,
-        width: p.size,
-        height: p.size,
-        animation: `particle-float ${p.duration} ease-out infinite`,
-        animationDelay: p.delay,
-      }}
-      />
-  ))}
-  </div>
-
   <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
     <div class="inline-block relative mb-8">
       <div
         class="kanji-glitch text-[160px] md:text-[220px] leading-none font-bold select-none"
         data-text="解"
-        style={{ color: '#fff', textShadow: '0 0 60px rgba(168,85,247,0.3)' }}
+        style={{ color: '#fff' }}
         aria-label="Kanji kai — tu anime en Android y PC"
         role="img"
       >
@@ -42,7 +16,7 @@ const particles = Array.from({ length: 8 }, () => ({
       </div>
     </div>
 
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 glow-text">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
       Turcanime
     </h1>
 

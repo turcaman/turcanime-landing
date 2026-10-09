@@ -42,14 +42,11 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 active:brightness-95;
+    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer hover:bg-[#6D28D9] active:bg-[#5B21B6];
     background-color: var(--color-primary-btn);
   }
   .card-feature {
-    @apply p-6 rounded-xl bg-surface border border-border transition-all duration-200;
-  }
-  .glow-text {
-    text-shadow: 0 0 24px rgba(168, 85, 247, 0.55), 0 0 60px rgba(168, 85, 247, 0.25);
+    @apply p-6 rounded-xl bg-surface border border-border transition-colors duration-200 hover:border-primary/30;
   }
 }
 
@@ -67,13 +64,6 @@
     72% { transform: translate(-3px, 0); }
     78% { transform: translate(3px, 0); }
     85% { transform: translate(0); }
-  }
-
-  @keyframes particle-float {
-    0% { transform: translateY(0) translateX(0); opacity: 0; will-change: transform, opacity; }
-    10% { opacity: 0.8; will-change: transform, opacity; }
-    90% { opacity: 0.4; will-change: transform, opacity; }
-    100% { transform: translateY(-120vh) translateX(30px); opacity: 0; will-change: transform, opacity; }
   }
 
   .kanji-glitch {
@@ -107,29 +97,11 @@
     opacity: 0.5;
   }
 
-  .scanlines::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(168, 85, 247, 0.025) 2px,
-      rgba(168, 85, 247, 0.025) 4px
-    );
-    pointer-events: none;
-    z-index: 9998;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .kanji-glitch::before,
-  .kanji-glitch::after,
-  .particle {
+  .kanji-glitch::after {
     animation: none !important;
   }
 }
