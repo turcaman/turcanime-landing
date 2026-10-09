@@ -1,15 +1,15 @@
 export const release = {
   android: {
-    version: "1.12.5",
-    apkUrl: "https://github.com/turcaman/turcanime/releases/download/v1.12.5/turcanime-1.12.5.apk",
+    version: "1.12.6",
+    apkUrl: "https://github.com/turcaman/turcanime/releases/download/v1.12.6/turcanime-1.12.6.apk",
   },
   desktop: {
-    version: "1.5.2",
+    version: "1.5.3",
     windows: {
-      exeUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.5.2/Turcanime-1.5.2-win-x64-setup.exe",
+      exeUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.5.3/Turcanime-1.5.3-win-x64-setup.exe",
     },
     linux: {
-      appImageUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.5.2/Turcanime-1.5.2-linux-x64.AppImage",
+      appImageUrl: "https://github.com/turcaman/turcanime-desktop/releases/download/v1.5.3/Turcanime-1.5.3-linux-x64.AppImage",
     },
   },
 } as const;
