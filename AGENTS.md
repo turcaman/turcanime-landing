@@ -12,9 +12,9 @@ Instructions for AI coding agents. Complement to README.md.
 | `npm run build` | Build static site to `dist/`            |
 | `npm run preview` | Preview production build locally       |
 | `npm run bump` | Fetch latest releases, update versions    |
-| `node --test scripts/bump.test.mjs` | Test the release builder |
+| `npm test` | Test the release builder                  |
 
-No lint or typecheck scripts are configured. The only test is the bump builder check above. Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
+No lint or typecheck scripts are configured. The only test is the bump builder check above (`scripts/bump.test.mjs`). Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
 
 ## Project
 
@@ -32,7 +32,7 @@ No lint or typecheck scripts are configured. The only test is the bump builder c
 | `src/lib/release.ts` | Version + download URLs (Android + Desktop) |
 | `src/lib/faq.ts` | Shared FAQ content (page + JSON-LD) |
 | `scripts/bump.mjs` | Automated version bump from GitHub releases |
-| `scripts/bump.test.mjs` | Release builder test (`node --test`) |
+| `scripts/bump.test.mjs` | Release builder test (`npm test`) |
 | `src/layouts/Layout.astro` | SEO, OG, JSON-LD, canonical |
 | `src/components/Hero.astro` | Hero with kanji glitch effect |
 | `src/components/Features.astro` | Feature cards (3-column grid) |
@@ -65,7 +65,7 @@ None configured. No CI pipeline enforces linting.
 
 - Do NOT add runtime JavaScript dependencies — site must stay 100% static
 - Do NOT use Tailwind utility classes for brand colors — use `bg-bg`, `text-text-primary`, etc.
-- Do NOT add test runners, lint, or typecheck scripts — only `scripts/bump.test.mjs`, run with `node --test`
+- Do NOT add test runners, lint, or typecheck scripts — only `scripts/bump.test.mjs`, run with `npm test`
 - Do NOT add PostCSS config or `tailwind.config.*` — Tailwind 4 uses the Vite plugin
 - Do NOT edit `src/lib/release.ts` manually — run `npm run bump` instead
 - Do NOT commit without running `npm run build` first

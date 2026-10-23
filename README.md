@@ -21,8 +21,7 @@ npm run dev
 | `build`   | Compila el sitio estático a `dist/`      |
 | `preview` | Previsualiza la build de producción      |
 | `bump`    | Actualiza versión y URLs de descarga desde GitHub |
-
-Test del bump: `node --test scripts/bump.test.mjs`.
+| `test`    | Corre el test del bump (`node --test`)   |
 
 ## Estructura
 

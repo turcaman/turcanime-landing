@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "bump": "node scripts/bump.mjs"
+    "bump": "node scripts/bump.mjs",
+    "test": "node --test scripts/bump.test.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
