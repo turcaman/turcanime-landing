@@ -1,6 +1,5 @@
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
 @import '@fontsource/jetbrains-mono/400.css';
 @import "tailwindcss";
@@ -12,6 +11,8 @@
   --color-surface-elevated: #111111;
   --color-border: #262626;
   --color-primary-btn: #7C3AED;
+  --color-primary-btn-hover: #6D28D9;
+  --color-primary-btn-active: #5B21B6;
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #BCBCBC;
 
@@ -42,7 +43,7 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer hover:bg-[#6D28D9] active:bg-[#5B21B6];
+    @apply px-6 py-3 rounded-lg font-bold text-sm text-white transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg cursor-pointer hover:bg-primary-btn-hover active:bg-primary-btn-active;
     background-color: var(--color-primary-btn);
   }
   .card-feature {
