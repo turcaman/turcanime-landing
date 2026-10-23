@@ -13,7 +13,7 @@ const metaDescription =
 	'Descargá Turcanime para Android, Windows o Linux. App nativa de anime, sin publicidad y sin cuentas.';
 
 const siteUrl = Astro.url.origin;
-const ogImage = new URL('/og-image.webp', Astro.url).href;
+const ogImage = new URL('/og-image.jpg', Astro.url).href;
 
 const structuredData = {
 	'@context': 'https://schema.org',
@@ -96,12 +96,12 @@ const structuredData = {
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/webp" href="/favicon.webp" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#000000" />
 		<link rel="canonical" href={Astro.url} />
 
 		<meta name="description" content={metaDescription} />
-		<meta name="keywords" content="Turcanime, anime APK, ver anime en Android, app anime para PC, Turcanime Desktop, streaming anime gratis, app anime sin anuncios, descargar anime Windows Linux Android" />
 		<meta name="robots" content="index, follow" />
 		<meta name="google-site-verification" content="inisPcLQqbRi1tEyPP_nFq2EmMI54_cXhb_QIFlcTaw" />
 		<meta name="generator" content={Astro.generator} />
@@ -113,12 +113,15 @@ const structuredData = {
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:site_name" content="Turcanime" />
 		<meta property="og:image" content={ogImage} />
-		<meta property="og:image:width" content="1024" />
-		<meta property="og:image:height" content="1024" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Turcanime: kanji sobre fondo negro" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={metaDescription} />
 		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content="Turcanime: kanji sobre fondo negro" />
 
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
