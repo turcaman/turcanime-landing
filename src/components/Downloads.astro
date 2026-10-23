@@ -4,28 +4,22 @@ import { release } from '../lib/release';
 
 const platforms = [
   {
-    id: 'android',
     name: 'Android',
     version: `v${release.android.version}`,
     meta: 'APK',
-    buttons: [{ label: 'Descargar', sub: 'APK', href: release.android.apkUrl }],
-    disabled: false,
+    href: release.android.apkUrl,
   },
   {
-    id: 'windows',
     name: 'Windows',
     version: `v${release.desktop.version}`,
     meta: '.exe',
-    buttons: [{ label: 'Descargar', sub: '.exe', href: release.desktop.windows.exeUrl }],
-    disabled: false,
+    href: release.desktop.windows.exeUrl,
   },
   {
-    id: 'linux',
     name: 'Linux',
     version: `v${release.desktop.version}`,
     meta: '.AppImage',
-    buttons: [{ label: 'Descargar', sub: '.AppImage', href: release.desktop.linux.appImageUrl }],
-    disabled: false,
+    href: release.desktop.linux.appImageUrl,
   },
 ];
 ---
@@ -38,42 +32,21 @@ const platforms = [
     </p>
 
     <div class="flex flex-wrap gap-4 justify-center">
-      {platforms.map(({ name, version, meta, buttons, disabled }) => (
-        <div
-          class=`card-feature flex items-center justify-between gap-4 w-full sm:w-[calc(50%-0.5rem)] ${disabled ? 'opacity-60' : ''}`
-        >
+      {platforms.map(({ name, version, meta, href }) => (
+        <div class="card-feature flex items-center justify-between gap-4 w-full sm:w-[calc(50%-0.5rem)]">
           <div class="min-w-0">
             <h3 class="font-bold text-white text-lg leading-tight">{name}</h3>
-            <span class="text-xs text-text-secondary font-mono">{version}{meta && ` · ${meta}`}</span>
+            <span class="text-xs text-text-secondary font-mono">{version} · {meta}</span>
           </div>
 
-          {disabled ? (
-            <span class="shrink-0 inline-flex items-center px-4 py-2.5 rounded-lg border border-border text-sm font-bold text-text-secondary cursor-not-allowed">
-              Próximamente
-            </span>
-          ) : buttons.length === 1 ? (
-            <a
-              href={buttons[0].href}
-              download
-              class="btn-primary inline-flex items-center justify-center gap-2 shrink-0"
-            >
-              <Download size={16} />
-              {buttons[0].label}
-            </a>
-          ) : (
-            <div class="flex gap-2 shrink-0">
-              {buttons.map((b) => (
-                <a
-                  href={b.href}
-                  download
-                  class="btn-primary inline-flex items-center justify-center gap-1.5 text-xs px-3"
-                >
-                  <Download size={14} />
-                  {b.label}
-                </a>
-              ))}
-            </div>
-          )}
+          <a
+            href={href}
+            aria-label={`Descargar para ${name} (${meta})`}
+            class="btn-primary inline-flex items-center justify-center gap-2 shrink-0"
+          >
+            <Download size={16} />
+            Descargar
+          </a>
         </div>
       ))}
     </div>
