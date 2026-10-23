@@ -12,14 +12,15 @@ Instructions for AI coding agents. Complement to README.md.
 | `npm run build` | Build static site to `dist/`            |
 | `npm run preview` | Preview production build locally       |
 | `npm run bump` | Fetch latest releases, update versions    |
+| `node --test scripts/bump.test.mjs` | Test the release builder |
 
-No test, lint, or typecheck scripts are configured. Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
+No lint or typecheck scripts are configured. The only test is the bump builder check above. Generated types live in `.astro/types.d.ts` (gitignored) and are auto-picked up by `tsconfig.json`.
 
 ## Project
 
 - **Framework/Runtime**: Astro 6 · Node >= 22.12.0 · static output (`dist/`)
 - **Bundler/Routing**: Vite (built-in Astro) · file-based routing
-- **State management**: none — static site, no JS runtime
+- **State management**: none — static site, no framework JS
 - **Import aliases**: none configured
 - **Styling**: Tailwind CSS 4 via `@tailwindcss/vite` (no PostCSS, no `tailwind.config.*`). Brand colors via CSS tokens (`bg-bg`, `text-text-primary`)
 - **TypeScript**: strict (`extends astro/tsconfigs/strict`)
@@ -29,7 +30,9 @@ No test, lint, or typecheck scripts are configured. Generated types live in `.as
 | File | Purpose |
 |------|---------|
 | `src/lib/release.ts` | Version + download URLs (Android + Desktop) |
+| `src/lib/faq.ts` | Shared FAQ content (page + JSON-LD) |
 | `scripts/bump.mjs` | Automated version bump from GitHub releases |
+| `scripts/bump.test.mjs` | Release builder test (`node --test`) |
 | `src/layouts/Layout.astro` | SEO, OG, JSON-LD, canonical |
 | `src/components/Hero.astro` | Hero with kanji glitch effect |
 | `src/components/Features.astro` | Feature cards (3-column grid) |
@@ -55,14 +58,14 @@ None configured. No CI pipeline enforces linting.
 - **UI language**: Spanish (`lang="es"`)
 - **Theme**: Dark (#000 bg, #A855F7 accent). Brand colors via CSS tokens only
 - **Comments**: Minimal — only for non-obvious workarounds
-- **Runtime**: 100% static — no JavaScript runtime
+- **Runtime**: 100% static — no framework JS; one inline script detects the OS
 - **Config**: No Tailwind config file (v4 uses Vite plugin). No PostCSS.
 
 ## 🚫 Rules
 
 - Do NOT add runtime JavaScript dependencies — site must stay 100% static
 - Do NOT use Tailwind utility classes for brand colors — use `bg-bg`, `text-text-primary`, etc.
-- Do NOT create test, lint, or typecheck scripts — none are configured
+- Do NOT add test runners, lint, or typecheck scripts — only `scripts/bump.test.mjs`, run with `node --test`
 - Do NOT add PostCSS config or `tailwind.config.*` — Tailwind 4 uses the Vite plugin
 - Do NOT edit `src/lib/release.ts` manually — run `npm run bump` instead
 - Do NOT commit without running `npm run build` first

@@ -1,6 +1,6 @@
 # Turcanime Landing
 
-Landing page para Turcanime (Android) y Turcanime Desktop. Sitio estático, sin JavaScript runtime.
+Landing page para Turcanime (Android) y Turcanime Desktop. Sitio estático, sin framework JS: un script inline detecta el SO para el botón de descarga.
 
 ## Stack
 
@@ -22,22 +22,25 @@ npm run dev
 | `preview` | Previsualiza la build de producción      |
 | `bump`    | Actualiza versión y URLs de descarga desde GitHub |
 
+Test del bump: `node --test scripts/bump.test.mjs`.
+
 ## Estructura
 
 ```
 src/
-  lib/          → Versión actual y URLs de descarga (release.ts)
+  lib/          → Versión y URLs (release.ts) + contenido FAQ compartido (faq.ts)
+  assets/       → Arte fuente del OG (no se publica)
   components/   → Hero, Features, Downloads, DownloadMenu, FAQ, Footer
   layouts/      → Layout.astro (SEO, meta, JSON-LD)
   pages/        → index.astro (página única)
   styles/       → global.css (Tailwind, tema, animaciones)
-scripts/        → bump.mjs (actualización automática de versión)
-public/         → favicon.webp, og-image.webp, robots.txt
+scripts/        → bump.mjs (bump automático) + bump.test.mjs
+public/         → favicon.png, og-image.jpg, robots.txt
 ```
 
 ## Convenciones
 
 - Tema oscuro: fondo #000, acento #A855F7. Colores de marca con tokens CSS, no clases Tailwind.
 - UI en español (lang="es")
-- Sin runtime JavaScript — sitio 100% estático
+- Sin framework JS (único script inline: detección de SO)
 - Comentarios solo para workarounds no obvios
