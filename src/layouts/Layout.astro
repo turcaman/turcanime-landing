@@ -12,6 +12,9 @@ const { title } = Astro.props;
 const metaDescription =
 	'Descargá Turcanime para Android, Windows o Linux. App nativa de anime, sin publicidad y sin cuentas.';
 
+const siteUrl = Astro.url.origin;
+const ogImage = new URL('/og-image.webp', Astro.url).href;
+
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@graph': [
@@ -48,7 +51,7 @@ const structuredData = {
 			'@type': 'WebSite',
 			name: 'Turcanime',
 			alternateName: 'Turcanime App',
-			url: 'https://turcanime.pages.dev',
+			url: siteUrl,
 			description:
 				'App de anime para Android, Windows y Linux. Sin publicidad, sin cuentas.',
 			inLanguage: 'es',
@@ -60,7 +63,7 @@ const structuredData = {
 		{
 			'@type': 'Organization',
 			name: 'Turcanime',
-			url: 'https://turcanime.pages.dev',
+			url: siteUrl,
 			sameAs: [
 				'https://github.com/turcaman/turcanime',
 				'https://github.com/turcaman/turcanime-desktop',
@@ -73,7 +76,7 @@ const structuredData = {
 					'@type': 'ListItem',
 					position: 1,
 					name: 'Turcanime',
-					item: 'https://turcanime.pages.dev/',
+					item: `${siteUrl}/`,
 				},
 			],
 		},
@@ -109,13 +112,13 @@ const structuredData = {
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:site_name" content="Turcanime" />
-		<meta property="og:image" content="https://turcanime.pages.dev/og-image.webp" />
+		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:width" content="1024" />
 		<meta property="og:image:height" content="1024" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={metaDescription} />
-		<meta name="twitter:image" content="https://turcanime.pages.dev/og-image.webp" />
+		<meta name="twitter:image" content={ogImage} />
 
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
